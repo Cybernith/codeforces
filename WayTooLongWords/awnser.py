@@ -1,11 +1,24 @@
-number = int(input('inter the number of inputs : '))
-inputs = []
-for i in range(0,number):
-    my_input = input('inter a word : ')
-    inputs.append(my_input)
-for word in inputs:
-    if len(word) > 10:
-        my_word = word[0] + str(len(word) - 1) + word[-1]
-        print(my_word)
-    else:
-        print(word)
+import sys
+
+
+def abbreviate(word: str) -> str:
+    length = len(word)
+    if length <= 10:
+        return word
+    return f"{word[0]}{length - 2}{word[-1]}"
+
+
+def main() -> None:
+    data = sys.stdin.read().strip().split()
+    if not data:
+        return
+
+    n = int(data[0])
+    words = data[1:1 + n]
+
+    out_lines = [abbreviate(w) for w in words]
+    sys.stdout.write("\n".join(out_lines))
+
+
+if __name__ == "__main__":
+    main()
