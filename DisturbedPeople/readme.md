@@ -1,158 +1,118 @@
-# Disturbed People
+# Disturbed People — Codeforces 1077B
 
-https://codeforces.com/problemset/problem/1077/B
+**Source:** https://codeforces.com/problemset/problem/1077/B
 
-There is a house with nn flats situated on the main street of Berlatov. Vova is watching this house every night. The house can be represented as an array of nn integer numbers a1,a2,…,ana1,a2,…,an, where ai=1ai=1 if in the ii-th flat the light is on and ai=0ai=0 otherwise.
+---
 
-Vova thinks that people in the ii-th flats are disturbed and cannot sleep if and only if 1<i<n1<i<n and ai−1=ai+1=1ai−1=ai+1=1 and ai=0ai=0.
+## Problem Statement
 
-Vova is concerned by the following question: what is the minimum number **k** such that if people from exactly kk pairwise distinct flats will turn off the lights then nobody will be disturbed? Your task is to find this number **k**.
+There is a house with `n` flats situated on the main street of Berlatov. Vova is watching this house every night. The house can be represented as an array of `n` integer numbers `a1, a2, …, an`, where `ai = 1` if in the `i`-th flat the light is on and `ai = 0` otherwise.
+
+Vova thinks that people in the `i`-th flats are **disturbed** and cannot sleep if and only if:
+
+- `1 < i < n`, and  
+- `ai−1 = ai+1 = 1`, and  
+- `ai = 0`.
+
+Vova is concerned by the following question: what is the minimum number `k` such that if people from exactly `k` pairwise distinct flats will turn off the lights then **nobody will be disturbed**? Your task is to find this number `k`.
 
 ### Input
 
-The first line of the input contains one integer nn (3≤n≤1003≤n≤100) — the number of flats in the house.
+The first line of the input contains one integer `n` (`3 ≤ n ≤ 100`) — the number of flats in the house.
 
-The second line of the input contains nn integers a1,a2,…,ana1,a2,…,an (ai∈{0,1}ai∈{0,1}), where aiai is the state of light in the ii-th flat.
+The second line of the input contains `n` integers `a1, a2, …, an` (`ai ∈ {0, 1}`), where `ai` is the state of light in the `i`-th flat.
 
 ### Output
 
-
-Print only one integer — the minimum number **k** such that if people from exactly **k** pairwise distinct flats will turn off the light then nobody will be disturbed.
-
-
-__________________________________________________________________________
-
-# Disturbed People (Codeforces 1077B)
-
-This folder contains a solution for the **"Disturbed People"** problem from Codeforces (problem 1077B).  
-In the overall repository structure, each folder corresponds to one Codeforces task and its answer.
-
-## Problem Overview
-
-We have a building with `n` flats in a row. For each flat `i`:
-
-- `a[i] = 1` if the light is ON
-- `a[i] = 0` if the light is OFF
-
-A person in flat `i` (with `1 < i < n`) is considered **disturbed** if:
-
-- `a[i - 1] == 1`
-- `a[i] == 0`
-- `a[i + 1] == 1`
-
-We are allowed to turn OFF the light in some flats (change `1` to `0`).  
-We want the **minimum number** of such operations so that **no one is disturbed**.
-
-### Key Idea (Greedy)
-
-Scan the array from left to right (from index `1` to `n - 2`, 0-based).  
-Whenever we see a pattern `[1, 0, 1]` centered at `i`, we:
-
-- Turn OFF the light at position `i + 1` (the right neighbor).
-- Increase the operation counter by 1.
-
-This greedy approach is optimal because:
-
-- Each disturbance is local to a triple `(i - 1, i, i + 1)`.
-- By always modifying the right neighbor, we prevent overlapping disturbances
-  from being counted more than once.
+Print only one integer — the **minimum number `k`** such that if people from exactly `k` pairwise distinct flats turn off the light, then nobody will be disturbed.
 
 ---
 
-## Files
+## Solution Overview
 
-- `disturbed_people.py` — Python solution (OOP, PEP 8, ready for competitive or reuse)
-- `main.go` — Go solution (idiomatic Go, competitive-style I/O)
-- `LICENSE` — MIT License
-- `README.md` — This documentation
-
----
-
-## Python Solution (`disturbed_people.py`)
-
-### Design
-
-The main class is:
-
-- `DisturbedPeopleSolver`
-  - Attributes:
-    - `flats: List[int]` — the current state of lights in the building.
-  - Methods:
-    - `minimum_switch_offs() -> int` — returns the minimal number of operations required.
-
-The implementation works on a copy of the `flats` list to avoid in-place side effects.
-
-### Usage (Command Line)
-
-Input format:
+We are given a binary array representing the lights in each flat. A person in flat `i` is **disturbed** if and only if the triple around `i` looks like:
 
 ```text
-n
-a1 a2 ... an
+1 0 1
 ```
 
-Run:
+centered at `i` (i.e. `a[i-1] = 1`, `a[i] = 0`, `a[i+1] = 1`, with `1 < i < n`).
 
-```bash
-echo -e "10\n1 1 0 1 1 0 1 0 1 0" | python disturbed_people.py
-```
+We are allowed to turn **some lights from 1 to 0**, and we want to **minimize** the number of such operations so that **no triple `1 0 1` remains**.
 
-Output:
+### Greedy Strategy
+
+A simple and optimal greedy algorithm is:
+
+1. Iterate `i` from `1` to `n - 2` (0-based indices, so this corresponds to `2` to `n-1` in 1-based).
+
+2. If we see the pattern:
+
+   ```text
+   a[i - 1] = 1
+   a[i]     = 0
+   a[i + 1] = 1
+   ```
+
+   then we **turn off** the light in flat `i + 1`:
+
+   ```text
+   a[i + 1] = 0
+   ```
+
+3. Increase the counter `k` by 1 each time we do this.
+
+4. Continue scanning to the right.
+
+This works because:
+
+- Any disturbed person is caused by a local `1 0 1` triple.
+- Changing `a[i + 1]` from `1` to `0` both fixes the disturbance at `i` and avoids creating a new `1 0 1` starting at the next position.
+- By scanning from left to right and always fixing the rightmost `1` in the pattern, we ensure we never count or fix the same disturbance twice.
+
+### Complexity
+
+- **Time:** `O(n)` — we visit each position at most once.  
+- **Space:** `O(1)` extra if we are allowed to modify the array in-place (or `O(n)` if we work on a copy).
+
+---
+
+## Implementation Notes
+
+### Python (`awnser.py`)
+
+- Reads `n` and the array `a` from standard input.
+- Implements the greedy scan from left to right.
+- Counts how many times it breaks the pattern `1 0 1` by setting the rightmost `1` to `0`.
+- Prints the final count `k` as the answer.
+
+The Python file is named:
 
 ```text
-2
+awnser.py
 ```
 
-### Usage (As a Module)
+and is designed to be used in a Codeforces-style environment (simple stdin/stdout, no external dependencies).
 
-```python
-from disturbed_people import DisturbedPeopleSolver
+### Go (`awnser.go`)
 
-flats = [1, 1, 0, 1, 1, 0, 1, 0, 1, 0]
-solver = DisturbedPeopleSolver(flats=flats)
-print(solver.minimum_switch_offs())  # 2
-```
+- Mirrors the same greedy logic in Go.
+- Uses `bufio.Reader`/`Writer` for efficient input and output.
+- Also reads `n` and the array of `0/1`, applies the greedy algorithm, and prints `k`.
 
----
-
-## Go Solution (`main.go`)
-
-The Go version mirrors the Python logic, using:
-
-- `DisturbedPeopleSolver` struct with field:
-  - `Flats []int`
-- Method:
-  - `MinimumSwitchOffs() int`
-
-### Usage (Command Line)
-
-```bash
-echo -e "10\n1 1 0 1 1 0 1 0 1 0" | go run main.go
-```
-
-Output:
+The Go file is named:
 
 ```text
-2
+awnser.go
 ```
 
-The Go solution uses `bufio` for efficient input/output,
-which is standard practice in competitive programming.
+and is suitable for submission to online judges that support Go.
 
 ---
 
-## Complexity
+## Notes
 
-For both Python and Go solutions:
+(Reserved for additional comments, links, or branding to be filled by Cybernith - soroosh morshedi)
+https://sorooshmorshedi.ir
 
-- Time complexity: **O(n)** — a single pass through the array.
-- Space complexity: **O(n)** — due to copying the input state (could be reduced to O(1) if in-place modification is allowed).
 
----
-
-## License
-
-This folder (and its contents) is licensed under the **MIT License**.  
-See the `LICENSE` file for the full license text.
-
-** by soroosh morshedi **
