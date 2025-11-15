@@ -7,7 +7,6 @@ A growing  solutions written in clean, production-style Python and Go.
 - 🐍 Python
 - 🦫 Go
 - 🧩 C++
-- ⚡ JavaScript
 
 
 Each problem lives in its own folder with:
