@@ -1,8 +1,16 @@
 # Codeforces Solutions Collection
 
 This repository contains a growing collection of **Codeforces problem solutions**, each organized in its own folder.
+A growing  solutions written in clean, production-style Python and Go.
 
-Every problem folder is self–contained and includes:
+### Tech Stack
+- 🐍 Python
+- 🦫 Go
+- 🧩 C++
+- ⚡ JavaScript
+
+
+Each problem lives in its own folder with:
 
 - `awnser.py` — Python solution (PEP 8–compliant, with clear function and variable names)
 - `awnser.go` — Go solution (idiomatic Go, using buffered I/O)
