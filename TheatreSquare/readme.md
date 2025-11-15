@@ -1,4 +1,4 @@
-# Theatre Square — Codeforces 1A
+# Theatre Square - Codeforces 1A
 
 **Source:** https://codeforces.com/problemset/problem/1/A
 
@@ -107,3 +107,4 @@ which fits in a signed 64-bit integer.
 
 CyberNith — Soroosh Morshedi  
 https://sorooshmorshedi.ir
+
