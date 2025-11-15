@@ -1,4 +1,4 @@
-# Spy Detected! — Codeforces 1512A
+# Spy Detected! - Codeforces 1512A
 
 **Source:** https://codeforces.com/problemset/problem/1512/A
 
@@ -109,3 +109,4 @@ Given `t ≤ 100` and `n ≤ 100`, this is easily efficient.
 
 CyberNith — Soroosh Morshedi  
 https://sorooshmorshedi.ir
+
