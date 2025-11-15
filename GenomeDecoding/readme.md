@@ -28,7 +28,7 @@ If it is possible to decode the genome, print it. If there are multiple answers,
 
 ## Solution Overview
 
-We need to replace each `'?'` in the genome string with one of `A`, `C`, `G`, `T` such that, in the final string, **each of the four letters appears exactly `n / 4` times**.
+We need to replace each `'?'` in the genome string with one of `A`, `C`, `G`, `T` so that, in the final string, **each of the four letters appears exactly `n / 4` times**.
 
 This gives us some immediate constraints:
 
@@ -149,6 +149,6 @@ and is compatible with online judges that support Go.
 
 ## Notes
 
-(Reserved for additional comments, links, or branding to be filled by Cybernith - sorooshmorshedi)
+(Reserved for additional comments, links, or branding to be filled by Cybernith / soroosh morshedi .)
 ---
-https://sorooshmorshedi.ir
+https:sorooshmorshedi.ir
