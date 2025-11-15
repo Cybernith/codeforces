@@ -1,4 +1,4 @@
-# Payment Without Change — Codeforces 1256A
+# Payment Without Change - Codeforces 1256A
 
 **Source:** https://codeforces.com/problemset/problem/1256/A
 
@@ -125,3 +125,4 @@ and is suitable for direct submission to Codeforces (Go implementation).
 
 CyberNith — Soroosh Morshedi  
 https://sorooshmorshedi.ir
+
