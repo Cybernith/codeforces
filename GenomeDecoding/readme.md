@@ -112,4 +112,6 @@ and is suitable for submission to online judges that support Go.
 
 ## Notes
 
-(Reserved for additional comments, links, or branding to be filled by Cybernith / EXUNI later.)
+(Reserved for additional comments, links, or branding to be filled by Cybernith - soroosh morshedi)
+https://sorooshmorshedi.ir
+
