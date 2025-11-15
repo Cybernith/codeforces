@@ -67,7 +67,7 @@ This minimizes `max(a_i) - min(a_i)` while keeping all `a_i` positive and summin
 
 ---
 
-## Python Solution (`candies.py`)
+## Python Solution (`awnser.py`)
 
 ### Design
 
@@ -108,7 +108,7 @@ print(distributor.distribute())  # [2, 2, 2, 1]
 
 ---
 
-## Go Solution (`main.go`)
+## Go Solution (`awnser.go`)
 
 The Go version defines a similar structure:
 
@@ -140,3 +140,4 @@ This folder (and its contents) is licensed under the **MIT License**.
 See the `LICENSE` file for full terms.
 
 ** by soroosh morshedi **
+
