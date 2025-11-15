@@ -52,7 +52,9 @@ Each `<problem-folder>` usually corresponds to one Codeforces task, for example:
 - `disturbed_people/` — Codeforces 1077B
 - `sleuth/` — Codeforces  (Sleuth problem)
 - `theatre_square/` — Codeforces 1A
-- `cycle_sort/` or similar — Codeforces 2161H (Cycle Sort educational implementation)
+- `cycle_sort/` or similar — Codeforces 2161H (Cycle Sort educational implementation
+- `MEXProblem/` or similar — Codeforces 2146E (Yet Another MEX Problem)
+
 
 > Note: Folder names are flexible; they just need to stay consistent inside the repo.
 
