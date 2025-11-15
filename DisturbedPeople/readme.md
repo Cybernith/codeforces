@@ -1,4 +1,4 @@
-# Disturbed People — Codeforces 1077B
+# Disturbed People - Codeforces 1077B
 
 **Source:** https://codeforces.com/problemset/problem/1077/B
 
@@ -114,5 +114,6 @@ and is suitable for submission to online judges that support Go.
 
 (Reserved for additional comments, links, or branding to be filled by Cybernith - soroosh morshedi)
 https://sorooshmorshedi.ir
+
 
 
