@@ -1,4 +1,4 @@
-# Mammoth's Genome Decoding — Codeforces 747B
+# Mammoth's Genome Decoding - Codeforces 747B
 
 **Source:** https://codeforces.com/problemset/problem/747/B
 
@@ -152,3 +152,4 @@ and is compatible with online judges that support Go.
 (Reserved for additional comments, links, or branding to be filled by Cybernith / soroosh morshedi .)
 ---
 https:sorooshmorshedi.ir
+
