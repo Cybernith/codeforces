@@ -61,6 +61,7 @@ Each `<problem-folder>` usually corresponds to one Codeforces task, for example:
 - `theatre_square/` — Codeforces 1A
 - `cycle_sort/` or similar — Codeforces 2161H (Cycle Sort educational implementation
 - `MEXProblem/` or similar — Codeforces 2146E (Yet Another MEX Problem)
+- `Dijkstra/` Shortest Path Queries (Dijkstra)
 
 
 > Note: Folder names are flexible; they just need to stay consistent inside the repo.
